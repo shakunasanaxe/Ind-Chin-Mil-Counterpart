@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reform Timeline · Counterparts</title>
+<meta name="description" content="A two-column timeline of organisational reform in the PLA and the Indian armed forces.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@400&family=Noto+Sans+SC:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<main>
+<header class="band"><div class="wrap">
+<div class="eyebrow">Orientation</div>
+<h1 class="h-sec" style="max-width:20ch">A hundred years of <em>organisation</em>, two columns</h1>
+<p class="lede" style="margin-top:24px">The two militaries took different routes to their present shapes. China's changes arrived in large, centrally directed waves in 1985, 2015-16 and 2024. India's arrived more slowly and more often after a crisis, such as the 1962 war and Kargil. Use the filters to read one country at a time, or read across to see how their reforms line up.</p>
+</div></header>
+<section class="band"><div class="wrap">
+<div class="sec-head"><div class="pill-row" id="flt"><button class="btn sm ghost" type="button" data-f="both" aria-pressed="true">Both</button><button class="btn sm ghost" type="button" data-f="cn" aria-pressed="false">China only</button><button class="btn sm ghost" type="button" data-f="in" aria-pressed="false">India only</button></div>
+<a class="link-cta" href="sources.html">Sources</a></div>
+<div class="tl-cols"><div>Year</div><div>China</div><div>India</div></div>
+<div class="tl" id="tl"></div>
+</div></section>
+<section class="band deep"><div class="wrap">
+<div class="sec-head"><h2 class="h-sec">What to take from this page</h2></div>
+<div class="rgrid c3"><div class="kpi"><div class="meta" style="color:var(--wine)">01</div><h3 class="h-card" style="margin:10px 0 10px">China reforms from the top, and in waves</h3><p style="color:var(--ink-70);font-size:14.5px;line-height:1.6;margin:0">The 1985, 2015-16 and 2024 changes were each decided by the central leadership and implemented over a short period. The scale of the reform has no Indian equivalent.</p></div><div class="kpi"><div class="meta" style="color:var(--wine)">02</div><h3 class="h-card" style="margin:10px 0 10px">India reforms after a shock</h3><p style="color:var(--ink-70);font-size:14.5px;line-height:1.6;margin:0">Kargil produced the IDS, the DIA and the Andaman and Nicobar Command. The CDS arrived two decades after the first recommendation, and the theatre commands remain outstanding.</p></div><div class="kpi"><div class="meta" style="color:var(--wine)">03</div><h3 class="h-card" style="margin:10px 0 10px">Reform separates three lines of authority</h3><p style="color:var(--ink-70);font-size:14.5px;line-height:1.6;margin:0">Since 2016 the CMC has managed, the theatres have fought and the services have built, as three distinct lines. That separation is the benchmark against which India's theatre proposal is usually measured.</p></div><div class="kpi"><div class="meta" style="color:var(--wine)">04</div><h3 class="h-card" style="margin:10px 0 10px">The two sides have borrowed from each other's mistakes</h3><p style="color:var(--ink-70);font-size:14.5px;line-height:1.6;margin:0">The Rudra brigades, for example, echo the Chinese combined-arms brigade, and the dissolution of the SSF shows that China is still adjusting its own model.</p></div><div class="kpi"><div class="meta" style="color:var(--wine)">05</div><h3 class="h-card" style="margin:10px 0 10px">Timing matters</h3><p style="color:var(--ink-70);font-size:14.5px;line-height:1.6;margin:0">The Chinese theatres date from 2016 and the Indian proposal has been open for more than twenty years. The comparison is partly a comparison of institutional speed.</p></div><div class="kpi"><div class="meta" style="color:var(--wine)">06</div><h3 class="h-card" style="margin:10px 0 10px">Dates are as reported</h3><p style="color:var(--ink-70);font-size:14.5px;line-height:1.6;margin:0">Entries for 2025 and 2026 rest on press and think-tank reporting. Check them against official sources if they matter to your argument.</p></div></div></div></section><section class="band"><div class="wrap"><div class="eyebrow">Continue</div><div class="rows"><a href="apex.html" style="text-decoration:none"><span>Apex command</span><span class="meta">Next →</span></a><a href="theatres.html" style="text-decoration:none"><span>Theatre commands</span><span class="meta">Then →</span></a></div></div></section>
+</main>
+<script src="assets/app.js"></script>
+<script src="assets/data-misc.js"></script>
+
+<script>
+
+const tl=document.getElementById('tl');
+tl.innerHTML=DATA.timeline.map(e=>`<div class="tl-item" data-has="${(e.cn?'c':'')+(e.in?'i':'')}"><div class="yr">${esc(e.y)}</div><div class="cn">${e.cn?`<h4>${esc(e.cn[0])}</h4><p>${esc(e.cn[1])}</p>`:'<span class="empty">&nbsp;</span>'}</div><div class="in">${e.in?`<h4>${esc(e.in[0])}</h4><p>${esc(e.in[1])}</p>`:'<span class="empty">&nbsp;</span>'}</div></div>`).join('');
+function flt(f){
+ document.querySelectorAll('#flt button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.f===f));
+ tl.querySelectorAll('.tl-item').forEach(it=>{const h=it.dataset.has;
+   it.classList.toggle('dim',(f==='cn'&&!h.includes('c'))||(f==='in'&&!h.includes('i')));
+   it.classList.toggle('hide-cn',f==='in');it.classList.toggle('hide-in',f==='cn');});
+ const cols=document.querySelector('.tl-cols');
+ cols.children[1].style.visibility=f==='in'?'hidden':'visible';cols.children[2].style.visibility=f==='cn'?'hidden':'visible';
+}
+document.getElementById('flt').addEventListener('click',e=>{const b=e.target.closest('button');if(b)flt(b.dataset.f);});
+flt('both');
+
+</script>
+</body>
+</html>

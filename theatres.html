@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Theatre Commands · Counterparts</title>
+<meta name="description" content="Five PLA theatre commands compared with India's service commands and the proposed integrated theatre commands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@400&family=Noto+Sans+SC:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<main>
+<header class="band"><div class="wrap">
+<div class="eyebrow">Command and control · 04</div>
+<h1 class="h-sec" style="max-width:20ch">Five theatres <em>operate</em>; three are still on paper in India</h1>
+<p class="lede" style="margin-top:24px">Since 1 February 2016 the PLA has fought through five joint theatre commands, each with a commander and a political commissar and a staff drawn from all services. India's commands are still organised by service. The schematic below is a cartogram and not a map: it shows the approximate position of each command, and the structure beneath it can be explored in the paired chart.</p>
+</div></header>
+<section class="band"><div class="wrap">
+<div class="sec-head"><h2 class="h-sec">Schematic cartograms</h2><div class="pill-row" id="carto-switch"><button class="btn sm ghost" data-k="cn" aria-pressed="true" type="button">China: theatres</button><button class="btn sm ghost" data-k="in" aria-pressed="false" type="button">India: Army commands</button></div></div>
+<div class="split" style="align-items:stretch">
+  <div><div id="carto" class="carto" role="group" aria-label="Schematic cartogram"></div><p class="meta" style="margin-top:10px">Schematic only. Positions are approximate and shapes are not to scale.</p></div>
+  <div id="carto-panel" aria-live="polite"></div>
+</div></div></section>
+<section class="band"><div class="wrap"><div id="tree"></div></div></section><section class="band deep"><div class="wrap">
+<div class="sec-head"><h2 class="h-sec">What to take from this page</h2></div>
+<div class="rgrid c3"><div class="kpi"><div class="meta" style="color:var(--wine)">01</div><h3 class="h-card" style="margin:10px 0 10px">A working system and a draft</h3><p style="color:var(--ink-70);font-size:14.5px;line-height:1.6;margin:0">China has run five joint theatres for ten years, and has had time to find their weaknesses. India's plan for three theatres has been under discussion for a long time, with an expected first command in 2026 that did not materialise.</p></div><div class="kpi"><div class="meta" style="color:var(--wine)">02</div><h3 class="h-card" style="margin:10px 0 10px">The Western Theatre is the one that matters for India</h3><p style="color:var(--ink-70);font-size:14.5px;line-height:1.6;margin:0">It faces the whole Line of Actual Control, which three Indian Army commands and three Air commands currently cover. The proposed Northern Theatre is designed to answer it, and that is the most direct pairing in this page.</p></div><div class="kpi"><div class="meta" style="color:var(--wine)">03</div><h3 class="h-card" style="margin:10px 0 10px">Theatre commanders do not own the forces</h3><p style="color:var(--ink-70);font-size:14.5px;line-height:1.6;margin:0">The services build, train and equip. Theatres fight. The Rocket Force and the three new arms stay outside the theatres and may be placed in support of them.</p></div><div class="kpi"><div class="meta" style="color:var(--wine)">04</div><h3 class="h-card" style="margin:10px 0 10px">Commanders and commissars are posts</h3><p style="color:var(--ink-70);font-size:14.5px;line-height:1.6;margin:0">Each theatre has a commander and a political commissar of equal grade, which is the pairing to set against an Indian Army Commander. The charts show these as posts and note where the former holder has been removed.</p></div><div class="kpi"><div class="meta" style="color:var(--wine)">05</div><h3 class="h-card" style="margin:10px 0 10px">Joint command was not the only aim</h3><p style="color:var(--ink-70);font-size:14.5px;line-height:1.6;margin:0">The 2016 reform also cut the army's dominance, broke up the old regions that had built local power bases, and tightened the CMC's hold on operational command.</p></div><div class="kpi"><div class="meta" style="color:var(--wine)">06</div><h3 class="h-card" style="margin:10px 0 10px">The count of headquarters misleads</h3><p style="color:var(--ink-70);font-size:14.5px;line-height:1.6;margin:0">India has seventeen service commands, plus two joint ones. China has five. A smaller number of joint headquarters is not the same as fewer layers, but it is a simpler chain of command.</p></div></div></div></section><section class="band"><div class="wrap"><div class="eyebrow">Continue</div><div class="rows"><a href="western.html" style="text-decoration:none"><span>The Western Theatre in depth</span><span class="meta">Next →</span></a><a href="ladder.html" style="text-decoration:none"><span>Levels and ranks</span><span class="meta">Then →</span></a><a href="services.html" style="text-decoration:none"><span>Services and arms</span><span class="meta">Back →</span></a></div></div></section>
+</main>
+<script src="assets/app.js"></script>
+<script src="assets/data-apex.js"></script>
+<script src="assets/data-forces.js"></script>
+
+<script>
+
+const CN = [
+ {id:'cn-t-north',n:'Northern',zh:'北部战区',c:'4 / 7',r:'1 / 3',hq:'Shenyang',prov:['Liaoning','Jilin','Heilongjiang','Shandong','Inner Mongolia (east)'],focus:'Korean Peninsula, Russian Far East, Mongolia, Yellow Sea',cp:'No close Indian counterpart. The proposed Indian Western command faces a different neighbour.'},
+ {id:'cn-t-west',n:'Western',zh:'西部战区',c:'1 / 4',r:'1 / 5',hq:'Chengdu',prov:['Xinjiang','Tibet','Qinghai','Gansu','Ningxia','Sichuan','Chongqing'],focus:'India (the whole LAC), Central Asia, Pakistan',cp:'The proposed Northern Theatre Command; until then Northern, Central and Eastern Army Commands.'},
+ {id:'cn-t-central',n:'Central',zh:'中部战区',c:'4 / 6',r:'3 / 5',hq:'Beijing',prov:['Beijing','Tianjin','Hebei','Shanxi','Shaanxi','Henan','Hubei','Inner Mongolia (part)'],focus:'Defence of the capital; strategic reserve',cp:'None. India has no theatre-level command with a capital-defence and reserve role.'},
+ {id:'cn-t-east',n:'Eastern',zh:'东部战区',c:'6 / 7',r:'3 / 5',hq:'Nanjing',prov:['Jiangsu','Zhejiang','Anhui','Fujian','Jiangxi','Shanghai'],focus:'Taiwan Strait, East China Sea, Japan',cp:'None. India has no command oriented toward these waters.'},
+ {id:'cn-t-south',n:'Southern',zh:'南部战区',c:'1 / 7',r:'5 / 6',hq:'Guangzhou',prov:['Guangdong','Guangxi','Hunan','Hainan','Yunnan','Guizhou','Hong Kong, Macao'],focus:'South China Sea, Vietnam, Myanmar frontier',cp:'The Eastern Naval Command and the Andaman and Nicobar Command, in the Indian Ocean; and the proposed Maritime Theatre.'}
+];
+const IN = [
+ {id:'ia-t-a-north',n:'Northern',zh:'Udhampur',c:'2 / 5',r:'1 / 3',hq:'Udhampur',prov:['Jammu and Kashmir','Ladakh'],focus:'Pakistan (LoC) and China (Ladakh LAC)',cp:'Faces the Xinjiang and Tibet forces of the Western Theatre in Ladakh. XIV Corps (Leh) is the China-facing corps.'},
+ {id:'ia-t-a-west',n:'Western',zh:'Chandimandir',c:'1 / 3',r:'3 / 5',hq:'Chandimandir',prov:['Punjab','Haryana','Himachal Pradesh (part)'],focus:'Pakistan, plains sector',cp:'No Chinese counterpart. Pakistan-facing.'},
+ {id:'ia-t-a-central',n:'Central',zh:'Lucknow',c:'3 / 5',r:'3 / 5',hq:'Lucknow',prov:['Uttar Pradesh','Uttarakhand','Madhya Pradesh','Bihar'],focus:'Middle sector with Tibet; strategic reserve',cp:'Covers the middle sector facing the Western Theatre, through the Uttar Bharat Area.'},
+ {id:'ia-t-a-east',n:'Eastern',zh:'Kolkata',c:'5 / 7',r:'2 / 5',hq:'Kolkata (Fort William)',prov:['Sikkim','Arunachal Pradesh','Assam','North East','West Bengal'],focus:'China (Sikkim, Arunachal), North East security',cp:'Faces the Tibet Military District forces. Holds III, IV, XXXIII and XVII Corps.'},
+ {id:'ia-t-a-west',n:'South Western',zh:'Jaipur',c:'1 / 3',r:'5 / 6',hq:'Jaipur',prov:['Rajasthan','Gujarat'],focus:'Pakistan, desert sector',cp:'No Chinese counterpart.'},
+ {id:'ia-t-a-west',n:'Southern',zh:'Pune',c:'3 / 6',r:'5 / 6',hq:'Pune',prov:['Maharashtra','Karnataka','Kerala','Tamil Nadu','Andhra Pradesh'],focus:'Peninsular India, training and reserve',cp:'No Chinese counterpart.'}
+];
+const mapEl=document.getElementById('carto'), panel=document.getElementById('carto-panel');
+const tree=UI.PairedTree(document.getElementById('tree'), PAIRS.theatres);
+let set='cn', cur=null;
+function showPanel(cell){
+  cur=cell;
+  panel.innerHTML=`<div style="border-top:2px solid var(--ink);padding-top:22px"><span class="meta">${set==='cn'?'Chinese theatre command':'Indian Army command'}</span>
+  <h3 class="h-feat" style="margin:8px 0 4px">${esc(cell.n)}${set==='cn'?' Theatre Command':' Command'}</h3>
+  <div class="zh" style="color:var(--ink-50);margin-bottom:16px">${esc(cell.zh)}</div>
+  <dl class="deftable"><dt>Headquarters</dt><dd>${esc(cell.hq)}</dd><dt>Area</dt><dd>${cell.prov.map(p=>`<span class="tag" style="margin:0 6px 6px 0">${esc(p)}</span>`).join('')}</dd><dt>Focus</dt><dd>${esc(cell.focus)}</dd><dt>Other side</dt><dd>${esc(cell.cp)}</dd></dl>
+  <p style="margin-top:20px"><button class="btn sm" type="button" id="open-tree">Open in the paired chart ↓</button></p></div>`;
+  document.getElementById('open-tree').onclick=()=>{tree.select(cell.id);document.getElementById('tree').scrollIntoView({behavior:'smooth'});};
+}
+function drawMap(){
+  const cells=set==='cn'?CN:IN;
+  mapEl.innerHTML=cells.map((c,i)=>`<button type="button" style="grid-column:${c.c};grid-row:${c.r}" data-i="${i}" aria-pressed="${cur&&cur.n===c.n&&cur.hq===c.hq}"><span class="meta">${esc(c.hq)}</span><b>${esc(c.n)}</b></button>`).join('');
+  mapEl.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{showPanel(cells[b.dataset.i]);mapEl.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));}));
+}
+document.querySelectorAll('#carto-switch button').forEach(b=>b.addEventListener('click',()=>{set=b.dataset.k;document.querySelectorAll('#carto-switch button').forEach(x=>x.setAttribute('aria-pressed',x===b));cur=null;drawMap();const first=(set==='cn'?CN:IN)[1];showPanel(first);mapEl.querySelectorAll('button')[1].setAttribute('aria-pressed','true');}));
+drawMap(); showPanel(CN[1]); mapEl.querySelectorAll('button')[1].setAttribute('aria-pressed','true');
+
+</script>
+</body>
+</html>

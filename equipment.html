@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equipment Side by Side · Counterparts</title>
+<meta name="description" content="Selected Chinese and Indian platforms compared, with the owning organisation of each.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@400&family=Noto+Sans+SC:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<main>
+<header class="band"><div class="wrap">
+<div class="eyebrow">Domains · 04</div>
+<h1 class="h-sec" style="max-width:20ch">Platforms, and the organisation that <em>owns</em> each</h1>
+<p class="lede" style="margin-top:24px">A comparison of weapons alone says little, since the same aircraft can be worth more or less depending on who commands it, who sustains it and how quickly the industry behind it can replace it. Each pair below therefore adds a line on the owner in the structure and a note on what the organisation changes. Capability figures are indicative and drawn from open sources, and the intent is to show structure, not to rank the two forces.</p>
+</div></header>
+<section class="band"><div class="wrap">
+<div class="sec-head"><div class="pill-row" id="eqf"><button class="btn sm ghost" type="button" data-f="all" aria-pressed="true">All</button><button class="btn sm ghost" type="button" data-f="air" aria-pressed="false">Air and air defence</button><button class="btn sm ghost" type="button" data-f="sea" aria-pressed="false">Naval</button><button class="btn sm ghost" type="button" data-f="land" aria-pressed="false">Land</button><button class="btn sm ghost" type="button" data-f="strat" aria-pressed="false">Strategic</button></div></div>
+<div id="eq"></div>
+<p class="meta" style="margin-top:12px;max-width:90ch;line-height:1.7">Photographs are hot-linked from Wikimedia Commons under the licence shown in each caption, and each caption links to the file page. Select a photograph to enlarge it.</p>
+</div></section>
+<section class="band"><div class="wrap"><div class="eyebrow">Continue</div><div class="rows"><a href="industry.html" style="text-decoration:none"><span>Industry and procurement</span><span class="meta">Back →</span></a><a href="sources.html" style="text-decoration:none"><span>Sources and method</span><span class="meta">Also →</span></a></div></div></section>
+</main>
+<script src="assets/app.js"></script>
+<script src="assets/data-misc.js"></script>
+
+<script>
+
+const host=document.getElementById('eq');
+function side(s,label){
+ const imgs=[s.img&&UI.photo(s.img,''),s.img2&&UI.photo(s.img2,'')].filter(Boolean);
+ const pic=imgs.length?`<div style="display:grid;gap:12px;grid-template-columns:${imgs.length>1?'1fr 1fr':'1fr'}">${imgs.join('')}</div>`:UI.photo(null,'',s.cap);
+ return `<div><span class="side-h">${label}</span>${pic}<h4>${esc(s.name)}</h4><span class="meta">${esc(s.org)}</span><dl class="deftable facts">${s.facts.map(f=>`<dt>${esc(f[0])}</dt><dd>${esc(f[1])}</dd>`).join('')}</dl></div>`;
+}
+function draw(f){
+ document.querySelectorAll('#eqf button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.f===f));
+ host.innerHTML=DATA.equipment.filter(e=>f==='all'||e.cat===f).map(e=>`<section style="margin-bottom:48px"><h3 class="h-feat" style="margin-bottom:18px">${esc(e.title)}</h3><div class="eq">${side(e.in,'India')}${side(e.cn,'China')}<div class="eq-note"><strong>What the organisation changes.</strong> ${esc(e.note)}</div></div></section>`).join('');
+}
+document.getElementById('eqf').addEventListener('click',e=>{const b=e.target.closest('button');if(b)draw(b.dataset.f);});
+draw('all');
+
+</script>
+</body>
+</html>

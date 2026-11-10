@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Levels and Ranks · Counterparts</title>
+<meta name="description" content="Levels of command from Chairman to platoon in the PLA and the Indian armed forces, with a rank converter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@400&family=Noto+Sans+SC:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<main>
+<header class="band"><div class="wrap">
+<div class="eyebrow">Command and control · 06</div>
+<h1 class="h-sec" style="max-width:20ch">From the Chairman down to the <em>platoon</em></h1>
+<p class="lede" style="margin-top:24px">Counting levels of command in the two systems is harder than it looks, because the PLA distinguishes between a person's rank and the grade of their post, and because it has taken the division out of its army. Select a level below to see the Chinese and Indian formations that occupy it, and what is different about them.</p>
+</div></header>
+<section class="band"><div class="wrap">
+<div class="sec-head"><h2 class="h-sec">The ladder</h2></div>
+<div id="ladder" class="ladder"></div>
+<div id="lad-detail" class="lad-detail" aria-live="polite"></div>
+</div></section>
+
+<section class="band deep"><div class="wrap">
+<div class="sec-head"><div><div class="eyebrow">Corps commanders and their counterparts</div><h2 class="h-sec">A group army commander and an Indian corps commander</h2></div></div>
+<div class="eq">
+<div><span class="side-h">India · Corps commander (GOC)</span><h4>Lieutenant General</h4>
+<dl class="deftable facts"><dt>Reports to</dt><dd>An Army Commander, who is also a lieutenant general</dd><dt>Commands</dt><dd>Divisions, plus corps troops such as artillery, engineers, signals and air defence</dd><dt>Chain</dt><dd>Single-service. Army corps commanders operate with the Air Force through coordination, and without a joint commander above them</dd><dt>Party presence</dt><dd>None</dd><dt>Examples</dt><dd>XIV Corps (Leh); IV Corps (Tezpur); XVII Mountain Strike Corps</dd></dl></div>
+<div><span class="side-h">China · Group army commander</span><h4>Lieutenant General or Major General (corps-grade post)</h4>
+<dl class="deftable facts"><dt>Reports to</dt><dd>The theatre commander for operations, and the Army headquarters for administration and training</dd><dt>Commands</dt><dd>Combined-arms brigades and support brigades, without the division layer</dd><dt>Chain</dt><dd>Joint. A theatre commander integrates the Army with the air, naval and rocket forces under a single command</dd><dt>Party presence</dt><dd>A political commissar of equal grade, and a Party committee</dd><dt>Examples</dt><dd>76th and 77th Group Armies (Western Theatre)</dd></dl></div>
+<div class="eq-note"><strong>In short.</strong> The post is similar, but the authority differs. An Indian corps commander leads a single-service formation and coordinates sideways. A group army commander leads a force assigned to a theatre and is commanded, in operations, by someone who is not an army officer by necessity. In addition, the Chinese commander shares leadership with a commissar, which has no Indian parallel.</div></div>
+</div></section>
+
+<section class="band"><div class="wrap">
+<div class="sec-head"><div><div class="eyebrow">Rank converter</div><h2 class="h-sec">Reading a PLA rank in Indian terms</h2></div>
+<label style="display:flex;gap:12px;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-50)">Indian service <select class="sel" id="svc"><option value="army">Army</option><option value="navy">Navy</option><option value="air">Air Force</option></select></label></div>
+<div class="scroll-x"><table class="data" style="min-width:640px"><thead><tr><th>PLA rank</th><th>Pinyin</th><th>English rendering</th><th>Indian equivalent</th><th>Note</th></tr></thead><tbody id="ranks"></tbody></table></div>
+<p class="meta" style="margin-top:20px;max-width:80ch;line-height:1.7">Rank equivalences are approximate. The PLA separates rank (军衔) from the grade of a post (职务等级), so an officer of a given rank may hold a post of a higher or lower grade. The Senior Colonel (大校) rank has no exact Indian counterpart and is normally treated as equal to a one-star officer.</p>
+</div></section>
+<section class="band"><div class="wrap"><div class="eyebrow">Continue</div><div class="rows"><a href="theatres.html" style="text-decoration:none"><span>Theatre commands</span><span class="meta">Back →</span></a><a href="western.html" style="text-decoration:none"><span>Western Theatre in depth</span><span class="meta">Related →</span></a><a href="equipment.html" style="text-decoration:none"><span>Equipment side by side</span><span class="meta">Next →</span></a></div></div></section>
+</main>
+<script src="assets/app.js"></script>
+<script src="assets/data-misc.js"></script>
+
+<script>
+
+const rows=DATA.ladder,box=document.getElementById('ladder'),det=document.getElementById('lad-detail');
+box.innerHTML='<div class="lad-head"><div>Level</div><div>PLA</div><div>Indian armed forces</div></div>'+rows.map((r,i)=>`<button type="button" class="lad-row" data-i="${i}" aria-pressed="false"><div><span class="lv">${esc(r.lv)}</span></div><div><div class="t">${esc(r.cn[0])}</div><div class="s">${esc(r.cn[1])}</div></div><div><div class="t">${esc(r.in[0])}</div><div class="s">${esc(r.in[1])}</div></div></button>`).join('');
+function show(i){const r=rows[i];
+ box.querySelectorAll('.lad-row').forEach((b,k)=>b.setAttribute('aria-pressed',k===i));
+ det.innerHTML=`<div><span class="meta">${esc(r.lv)} · China</span><h3 class="h-feat" style="margin:8px 0 12px">${esc(r.cn[0])}</h3><p style="color:var(--ink-70)">${esc(r.cnD)}</p></div><div><span class="meta">${esc(r.lv)} · India</span><h3 class="h-feat" style="margin:8px 0 12px">${esc(r.in[0])}</h3><p style="color:var(--ink-70)">${esc(r.inD)}</p></div><div style="grid-column:1/-1;border-top:1px solid var(--ink-20);padding:20px 0 0"><div class="aside"><strong>What differs.</strong> ${esc(r.diff)}</div></div>`;
+ det.querySelector('div').style.padding='26px 32px 26px 0';}
+box.addEventListener('click',e=>{const b=e.target.closest('.lad-row');if(b)show(Number(b.dataset.i));});
+show(4);
+const tb=document.getElementById('ranks'),sv=document.getElementById('svc');
+function drawRanks(){tb.innerHTML=DATA.ranks.map(r=>`<tr><td class="zh" style="font-size:17px">${esc(r.zh)}</td><td><span class="mono" style="font-size:11.5px;color:var(--ink-50)">${esc(r.py)}</span></td><td>${esc(r.cnEn)}</td><td><strong>${esc(r[sv.value])}</strong></td><td style="color:var(--ink-70)">${esc(r.note)}</td></tr>`).join('');}
+sv.addEventListener('change',drawRanks);drawRanks();
+
+</script>
+</body>
+</html>
