@@ -29,7 +29,7 @@
       ['equipment.html', 'Equipment Side by Side'],
     ]],
     ['Reference', [
-      ['sources.html', 'Sources and Method'],
+      ['sources.html', 'Sources'],
     ]],
   ];
 
@@ -60,7 +60,7 @@
     });
     const foot = document.createElement('footer');
     foot.className = 'page-foot';
-    foot.innerHTML = '<span>Takshashila Institution · Counterparts study desk</span><span>Open-source compilation. Verify leadership appointments against official announcements before citing.</span>';
+    foot.innerHTML = '<span>Takshashila Institution · Counterparts study desk</span>';
     const main = $('main');
     if (main) main.appendChild(foot);
   }
